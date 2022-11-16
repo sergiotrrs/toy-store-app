@@ -23,7 +23,7 @@ public class JwtUtil {
 	
 	//Método para generar el token
 	static void addAuthentication(HttpServletResponse response,  String username ) {
-		
+		 
 		@SuppressWarnings("deprecation")
 		String token = Jwts.builder()
 					.setSubject(username)

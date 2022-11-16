@@ -30,7 +30,7 @@ public class LoginFilter extends AbstractAuthenticationProcessingFilter {
 	@Override
 	public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response)
 			throws AuthenticationException, IOException, ServletException {
-		
+		 
 		//Obtenemos el body de la petición, que vendrá en formato JSON
 		InputStream body = request.getInputStream();
 		
