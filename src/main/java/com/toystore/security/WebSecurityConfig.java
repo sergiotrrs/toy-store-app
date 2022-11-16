@@ -18,22 +18,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter  {
 			.httpBasic()
 			.and()
 			.authorizeRequests()
-			.anyRequest().permitAll()
-			.and()
-			.csrf().disable();							
- 
-			
-			
-//				.antMatchers(HttpMethod.GET, "/api/customer/**").permitAll()
+//			.anyRequest().permitAll()
+//			.and()
+//			.csrf().disable();										
+				.antMatchers(HttpMethod.GET, "/api/customer/**").permitAll()
 				//.antMatchers(HttpMethod.POST, "/api/customer").hasRole("USER")
 				//.antMatchers(HttpMethod.PUT, "/api/customer").hasRole("USER") //.roles("USER","ADMIN")
 				//.antMatchers(HttpMethod.DELETE, "/api/customer/**").hasRole("ADMIN")				
-//			.anyRequest().authenticated() //.permitAll()
-//			.and()
-//			.addFilterBefore(new LoginFilter("/login", authenticationManager()),
-//					UsernamePasswordAuthenticationFilter.class)//Actuará este filtro sobre /login y esto nos da el token JWT
-//			.addFilterBefore(new JwtFilter(),UsernamePasswordAuthenticationFilter.class) //Revisará si el token es correcto
-//			.csrf().disable();							
+			.anyRequest().authenticated() //.permitAll()
+			.and()
+			.addFilterBefore(new LoginFilter("/login", authenticationManager()),
+					UsernamePasswordAuthenticationFilter.class)//Actuará este filtro sobre /login y esto nos da el token JWT
+			.addFilterBefore(new JwtFilter(),UsernamePasswordAuthenticationFilter.class) //Revisará si el token es correcto
+			.csrf().disable();							
 	}
 	
 	@Override
